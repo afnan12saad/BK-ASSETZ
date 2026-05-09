@@ -27,7 +27,7 @@ const navLinks = [
   { name: 'Portfolio', href: '#portfolio' },
   { name: 'Process', href: '#process' },
   { name: 'Pricing', href: '#pricing' },
-  { name: 'Contact', href: '#contact' },
+  { name: 'Contact', href: '#contact-info' },
 ];
 
 const portfolio = [
@@ -35,6 +35,16 @@ const portfolio = [
   { title: 'The Prism Center', category: 'Commercial', image: 'https://lh3.googleusercontent.com/aida-public/AB6AXuB9ZsEoCHbAcMmrR4RaC4clcCWChjZP9295SHnpKyuDaYEBXcRbc9XP1-SGzvghP1YeheZ_5Q-hCRyz7rQZEhusshQ9t0dOTyMgLGJWQgxGuek4uT4RneOJ7_n6XhBImdLfzOzoARouSHZD7FrwO4QRIqy1GLoO21l1Yvqi9PzOwrukc_9BFAQJKxd8GCMB3MBWxeWviaKiKo8w4txaGLx8u7yWI-EqhIyS_YPfZfMDu7_PaQ7l9KlLUSAYi0fEFgYNPTd2dw9Qh1Co' },
   { title: 'Ironwood Estate', category: 'Luxury Villa', image: 'https://lh3.googleusercontent.com/aida-public/AB6AXuAYTysg8PkZ6l_zhlUZAuMLPAoAy5z-yNuNuc9ZJyNPWdvYnCkaQvKvdUclXGY-0_2OJ6kq3UnhVpcZSrbnGa_rlxKU5WOUc_dOGgKEWF8nm4RNhnesfWUkUHEpP6SYE3h657AfbRhg-4utmbxthq907OsuR5zSysg7amFVlxnl4nisWVCyEvWUHl2Zyu98HQisi85cyh5-WUCzVlQ38kayuF_EB6iZYaoankIwouVATJV1hnJeq8nS6t3u4kMM-EZPPGvt9sC7N1Cz' },
 ];
+
+const engineerDetails = {
+  name: 'Mohammed Awaise Mudassir',
+  role: 'Head of Engineering & Principal Architect',
+  experience: '10 + years of structural excellence',
+  email: 'awaisemudassir@gmail.com',
+  phone: '+1 (555) 012-3456',
+  office: 'BK Global Tower, Floor 42, Innovation District',
+  bio: 'Pioneering sustainable structural designs and overseeing every BK ASSETZ project from conception to completion. Specialized in high-rise stability and luxury residential integrity.'
+};
 
 const packages = [
   {
@@ -126,13 +136,14 @@ export default function App() {
           </div>
 
           <div className="flex items-center space-x-4">
-            <motion.button 
+            <motion.a 
+              href="#estimator"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
-              className="bg-primary text-on-primary px-6 py-2 rounded-lg text-sm font-bold shadow-lg"
+              className="bg-primary text-on-primary px-6 py-2 rounded-lg text-sm font-bold shadow-lg text-center"
             >
               Get Estimate
-            </motion.button>
+            </motion.a>
             <button 
               className="md:hidden text-primary"
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
@@ -196,18 +207,20 @@ export default function App() {
               Crafting bespoke architectural legacies through innovative engineering and uncompromising craftsmanship. We turn complex structural blueprints into timeless physical realities.
             </p>
             <div className="flex flex-wrap gap-4 pt-4">
-              <motion.button 
+              <motion.a 
+                href="#estimator"
                 whileHover={{ scale: 1.05 }}
-                className="bg-primary text-on-primary px-10 py-4 rounded-xl font-bold shadow-xl shadow-primary/20"
+                className="bg-primary text-on-primary px-10 py-4 rounded-xl font-bold shadow-xl shadow-primary/20 text-center"
               >
                 Get Free Estimate
-              </motion.button>
-              <motion.button 
+              </motion.a>
+              <motion.a 
+                href="#portfolio"
                 whileHover={{ backgroundColor: 'rgba(255,255,255,0.1)' }}
-                className="glass-panel px-10 py-4 rounded-xl font-bold border border-white/20 transition-all"
+                className="glass-panel px-10 py-4 rounded-xl font-bold border border-white/20 transition-all text-center"
               >
                 View Portfolio
-              </motion.button>
+              </motion.a>
             </div>
           </motion.div>
         </div>
@@ -250,12 +263,13 @@ export default function App() {
                   </li>
                 ))}
               </ul>
-              <motion.button 
+              <motion.a 
+                href="#estimator"
                 whileHover={{ scale: 1.02 }}
-                className={`w-full py-4 rounded-xl font-bold transition-all ${pkg.highlight ? 'bg-primary text-on-primary shadow-lg shadow-primary/20' : 'border border-primary/40 text-primary hover:bg-primary hover:text-on-primary'}`}
+                className={`w-full py-4 rounded-xl font-bold transition-all text-center ${pkg.highlight ? 'bg-primary text-on-primary shadow-lg shadow-primary/20' : 'border border-primary/40 text-primary hover:bg-primary hover:text-on-primary'}`}
               >
-                View Details
-              </motion.button>
+                Get Quote
+              </motion.a>
             </motion.div>
           ))}
         </div>
@@ -294,12 +308,13 @@ export default function App() {
             <h2 className="text-3xl md:text-4xl font-bold text-primary mb-4">Our Legacy Portfolio</h2>
             <p className="text-on-surface-variant">A showcase of structural excellence across continents.</p>
           </div>
-          <motion.button 
+          <motion.a 
+            href="#portfolio"
             whileHover={{ x: 5 }}
             className="hidden md:flex items-center gap-2 text-primary font-bold group"
           >
             View All Projects <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />
-          </motion.button>
+          </motion.a>
         </div>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {portfolio.map((item, i) => (
@@ -324,7 +339,7 @@ export default function App() {
 
       {/* Journey Timeline */}
       <section id="process" className="py-24 px-6 md:px-16 max-w-7xl mx-auto">
-        <h2 className="text-3xl md:text-4xl font-bold text-primary text-center mb-20">The Archistruct Journey</h2>
+        <h2 className="text-3xl md:text-4xl font-bold text-primary text-center mb-20">The BK ASSETZ Journey</h2>
         <div className="relative">
           <div className="absolute top-8 left-0 w-full h-0.5 bg-white/10 hidden md:block"></div>
           <div className="grid grid-cols-1 md:grid-cols-6 gap-8">
@@ -349,7 +364,7 @@ export default function App() {
       </section>
 
       {/* Estimator Form */}
-      <section id="contact" className="py-24 bg-surface-container px-6">
+      <section id="estimator" className="py-24 bg-surface-container px-6">
         <motion.div 
           initial={{ opacity: 0, y: 40 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -412,12 +427,90 @@ export default function App() {
         <div className="relative z-10 text-center px-6 max-w-4xl mx-auto space-y-8">
           <h2 className="text-4xl md:text-6xl font-bold text-glow">Start Your Legacy Today</h2>
           <p className="text-lg md:text-xl text-on-surface-variant">Collaborate with the industry's finest structural minds to build something that lasts generations. Precision engineering meets artistic vision.</p>
-          <motion.button 
+          <motion.a 
+            href="#estimator"
             whileHover={{ scale: 1.05 }}
-            className="bg-primary text-on-primary px-12 py-5 rounded-full font-bold shadow-2xl shadow-primary/40"
+            className="inline-block bg-primary text-on-primary px-12 py-5 rounded-full font-bold shadow-2xl shadow-primary/40"
           >
             Get Free Quote
-          </motion.button>
+          </motion.a>
+        </div>
+      </section>
+
+      {/* Contact Us (Engineer Details) */}
+      <section id="contact-info" className="py-24 px-6 md:px-16 max-w-7xl mx-auto">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
+          <motion.div
+            initial={{ opacity: 0, x: -30 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            className="space-y-8"
+          >
+            <div>
+              <span className="text-primary text-xs font-bold uppercase tracking-widest mb-2 block">Direct Communication</span>
+              <h2 className="text-4xl md:text-5xl font-bold leading-tight">Mastermind Behind <br /><span className="text-primary">BK ASSETZ</span></h2>
+            </div>
+            <p className="text-on-surface-variant text-lg leading-relaxed">
+              {engineerDetails.bio}
+            </p>
+            <div className="space-y-6">
+              <div className="flex items-center gap-4 group">
+                <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-on-primary transition-all">
+                  <Users size={24} />
+                </div>
+                <div>
+                  <div className="text-xs text-on-surface-variant font-bold uppercase">{engineerDetails.role}</div>
+                  <div className="text-xl font-bold">{engineerDetails.name}</div>
+                </div>
+              </div>
+              <div className="flex items-center gap-4 group">
+                <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-on-primary transition-all">
+                  <ShieldCheck size={24} />
+                </div>
+                <div>
+                  <div className="text-xs text-on-surface-variant font-bold uppercase">Experience</div>
+                  <div className="text-xl font-bold">{engineerDetails.experience}</div>
+                </div>
+              </div>
+            </div>
+          </motion.div>
+
+          <motion.div
+            initial={{ opacity: 0, x: 30 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            className="glass-panel p-8 md:p-12 rounded-3xl border-primary/20 space-y-8"
+          >
+            <h3 className="text-2xl font-bold text-primary">Office Information</h3>
+            <div className="space-y-6">
+              <div className="flex items-start gap-4">
+                <MapPin className="text-primary shrink-0 mt-1" size={24} />
+                <div>
+                  <div className="text-xs text-on-surface-variant font-bold uppercase">Headquarters</div>
+                  <p className="text-on-surface">{engineerDetails.office}</p>
+                </div>
+              </div>
+              <div className="flex items-start gap-4">
+                <MessageSquare className="text-primary shrink-0 mt-1" size={24} />
+                <div>
+                  <div className="text-xs text-on-surface-variant font-bold uppercase">Email Address</div>
+                  <p className="text-on-surface">{engineerDetails.email}</p>
+                </div>
+              </div>
+              <div className="flex items-start gap-4">
+                <Clock className="text-primary shrink-0 mt-1" size={24} />
+                <div>
+                  <div className="text-xs text-on-surface-variant font-bold uppercase">Consultation Hours</div>
+                  <p className="text-on-surface">Mon - Fri: 09:00 AM - 06:00 PM</p>
+                </div>
+              </div>
+            </div>
+            <div className="pt-4 border-t border-white/10">
+              <p className="text-xs text-on-surface-variant opacity-60">
+                This section is strictly managed by the BK ASSETZ Engineering Board. Unauthorized modifications are prohibited.
+              </p>
+            </div>
+          </motion.div>
         </div>
       </section>
 
@@ -434,7 +527,7 @@ export default function App() {
             <a href="#" className="hover:text-primary transition-colors">Licensing</a>
             <a href="#" className="hover:text-primary transition-colors">Careers</a>
           </div>
-          <p className="text-on-surface-variant text-xs">© 2024 Archistruct Premium Construction. All rights reserved.</p>
+          <p className="text-on-surface-variant text-xs">© 2024 BK ASSETZ Premium Construction. All rights reserved.</p>
         </div>
       </footer>
 
